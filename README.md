@@ -530,7 +530,7 @@ No License has been included for now.
 
 ## 🎬 Demo Video
 
-[Link to demo video will be provided here]
+[Video URL](https://drive.google.com/file/d/1gk7RRqDDcwHhfXjaKsaSd8o09A5O4qQP/view)
 
 ---
 
