@@ -4,7 +4,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.http import JsonResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 def api_root(request):
     """API root endpoint with information about available endpoints"""
@@ -46,6 +46,9 @@ def api_root(request):
 
 def root_redirect(request):
     """Show backend information and links"""
+    # Check if request accepts HTML (browser) or JSON (API client)
+    if 'text/html' in request.META.get('HTTP_ACCEPT', ''):
+        return render(request, 'api_root.html')
     return api_root(request)
 
 urlpatterns = [
