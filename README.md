@@ -445,7 +445,7 @@ GET /api/version/       - Application version
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+No License has been included for now.
 
 ## 🆘 Troubleshooting
 
