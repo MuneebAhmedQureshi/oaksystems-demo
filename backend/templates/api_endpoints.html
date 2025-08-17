@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Endpoints - Process Automation Assessment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .endpoint-group {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2c3e50;
+        }
+        .endpoint-group h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+        }
+        .endpoint-group p {
+            margin: 0 0 15px 0;
+            color: #666;
+        }
+        .endpoint {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+        }
+        .endpoint-method {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 10px;
+            color: white;
+        }
+        .method-get { background: #28a745; }
+        .method-post { background: #007bff; }
+        .method-put { background: #ffc107; color: #212529; }
+        .method-delete { background: #dc3545; }
+        .endpoint-url {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .endpoint-description {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info-box h4 {
+            margin: 0 0 10px 0;
+            color: #1976d2;
+        }
+        .info-box p {
+            margin: 0;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .endpoint-method {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 API Endpoints Documentation</h1>
+            <p>Process Automation Assessment REST API <span class="status">v1.0.0</span></p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <h4>🔐 Authentication Required</h4>
+                <p>Most endpoints require JWT authentication. Include the token in the Authorization header: <code>Bearer &lt;token&gt;</code></p>
+            </div>
+
+            <div class="section">
+                <h2>Authentication Endpoints</h2>
+                <div class="endpoint-group">
+                    <h3>User Authentication & Management</h3>
+                    <p>Handle user registration, login, and profile management</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/auth/register/</span>
+                        <div class="endpoint-description">Register a new user account</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/auth/login/</span>
+                        <div class="endpoint-description">Authenticate user and get JWT tokens</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/auth/profile/</span>
+                        <div class="endpoint-description">Get current user's profile information</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-put">PUT</span>
+                        <span class="endpoint-url">/api/auth/profile/update/</span>
+                        <div class="endpoint-description">Update user profile information</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/auth/users/</span>
+                        <div class="endpoint-description">List all users (admin only)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Process Assessment & Reports</h2>
+                <div class="endpoint-group">
+                    <h3>Process Assessments</h3>
+                    <p>Create, manage, and evaluate process automation assessments</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/assessments/</span>
+                        <div class="endpoint-description">List all process assessments with filtering and search</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/tasks/assessments/</span>
+                        <div class="endpoint-description">Create a new process assessment</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/assessments/{id}/</span>
+                        <div class="endpoint-description">Get detailed information about a specific assessment</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-put">PUT</span>
+                        <span class="endpoint-url">/api/tasks/assessments/{id}/</span>
+                        <div class="endpoint-description">Update an existing assessment</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-delete">DELETE</span>
+                        <span class="endpoint-url">/api/tasks/assessments/{id}/</span>
+                        <div class="endpoint-description">Delete a process assessment</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/tasks/assessments/bulk/</span>
+                        <div class="endpoint-description">Create multiple assessments at once</div>
+                    </div>
+                </div>
+
+                <div class="endpoint-group">
+                    <h3>Reports</h3>
+                    <p>Generate and manage comprehensive assessment reports</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/reports/</span>
+                        <div class="endpoint-description">List all generated reports</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/tasks/reports/</span>
+                        <div class="endpoint-description">Create a new report from selected assessments</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/reports/{id}/</span>
+                        <div class="endpoint-description">Get detailed report information</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/tasks/reports/{id}/ai-conclusion/</span>
+                        <div class="endpoint-description">Generate AI-powered conclusion for a report</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/reports/{id}/download/csv/</span>
+                        <div class="endpoint-description">Download report as CSV file</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/reports/{id}/download/pdf/</span>
+                        <div class="endpoint-description">Download report as PDF file</div>
+                    </div>
+                </div>
+
+                <div class="endpoint-group">
+                    <h3>Dashboard</h3>
+                    <p>Get statistical data and analytics for dashboard views</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/dashboard/stats/</span>
+                        <div class="endpoint-description">Get dashboard statistics and summary data</div>
+                    </div>
+                </div>
+
+                <div class="endpoint-group">
+                    <h3>Categories</h3>
+                    <p>Manage process categories for organization</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/tasks/categories/</span>
+                        <div class="endpoint-description">List all process categories</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/tasks/categories/</span>
+                        <div class="endpoint-description">Create a new process category</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>AI Features</h2>
+                <div class="endpoint-group">
+                    <h3>Machine Learning Analysis</h3>
+                    <p>Advanced AI-powered analysis and predictions for process automation</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/ai/similarity-analysis/</span>
+                        <div class="endpoint-description">Perform K-means clustering to find similar processes</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/ai/predict-success/</span>
+                        <div class="endpoint-description">Predict automation success probability for a process</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/ai/optimization-suggestions/</span>
+                        <div class="endpoint-description">Generate AI-powered optimization recommendations</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/ai/analysis-history/</span>
+                        <div class="endpoint-description">Get history of all AI analyses performed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Automation Templates</h2>
+                <div class="endpoint-group">
+                    <h3>Templates & Recommendations</h3>
+                    <p>Pre-built templates and automation recommendations</p>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-get">GET</span>
+                        <span class="endpoint-url">/api/automation/templates/</span>
+                        <div class="endpoint-description">List all automation templates</div>
+                    </div>
+                    
+                    <div class="endpoint">
+                        <span class="endpoint-method method-post">POST</span>
+                        <span class="endpoint-url">/api/automation/recommendations/</span>
+                        <div class="endpoint-description">Generate automation recommendations for a process</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📊 Response Format</h4>
+                <p>All endpoints return JSON responses. List endpoints support pagination with 'page' and 'page_size' parameters. Most endpoints support filtering, searching, and ordering.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>🔍 Query Parameters</h4>
+                <p>Common query parameters include: search, ordering, page, page_size, and various filter fields specific to each endpoint.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

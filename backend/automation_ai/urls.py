@@ -8,6 +8,10 @@ from django.shortcuts import redirect, render
 
 def api_root(request):
     """API root endpoint with information about available endpoints"""
+    # Check if request accepts HTML (browser) or JSON (API client)
+    if 'text/html' in request.META.get('HTTP_ACCEPT', ''):
+        return render(request, 'api_endpoints.html')
+    
     base_url = f"{request.scheme}://{request.get_host()}"
     
     return JsonResponse({
