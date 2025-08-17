@@ -1,0 +1,83 @@
+[
+  {
+    "model": "tasks.processcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Finance & Accounting",
+      "description": "Financial processes including invoicing, payments, and reporting",
+      "color": "#28a745",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tasks.processcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Human Resources",
+      "description": "HR processes including onboarding, payroll, and employee management",
+      "color": "#007bff",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "tasks.processcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Customer Service",
+      "description": "Customer support and service processes",
+      "color": "#ffc107",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "automation.automationtemplate",
+    "pk": 1,
+    "fields": {
+      "name": "Invoice Processing",
+      "description": "Template for assessing invoice processing automation potential",
+      "category": "Finance & Accounting",
+      "default_repetitiveness": 5,
+      "default_rule_based": 5,
+      "default_complexity": 3,
+      "default_volume": 4,
+      "default_standardization": 4,
+      "default_current_errors": 4,
+      "guidance_text": "Invoice processing is typically highly repetitive with clear rules. Consider volume and standardization of invoice formats.",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "automation.automationtemplate",
+    "pk": 2,
+    "fields": {
+      "name": "Employee Onboarding",
+      "description": "Template for assessing employee onboarding automation potential",
+      "category": "Human Resources",
+      "default_repetitiveness": 3,
+      "default_rule_based": 4,
+      "default_complexity": 2,
+      "default_volume": 3,
+      "default_standardization": 3,
+      "default_current_errors": 2,
+      "guidance_text": "Employee onboarding involves multiple systems and some human interaction. Focus on standardizing processes first.",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "automation.automationtemplate",
+    "pk": 3,
+    "fields": {
+      "name": "Data Entry",
+      "description": "Template for assessing data entry automation potential",
+      "category": "General",
+      "default_repetitiveness": 5,
+      "default_rule_based": 5,
+      "default_complexity": 4,
+      "default_volume": 5,
+      "default_standardization": 4,
+      "default_current_errors": 5,
+      "guidance_text": "Data entry is ideal for automation when inputs are standardized and rules are clear.",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  }
+]
