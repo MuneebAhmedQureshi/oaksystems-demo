@@ -325,8 +325,9 @@ Thumbs.db
 *.backup
 *.tmp
 
-# PDF files (if they're generated reports)
+# PDF and csv files (if they're generated reports)
 *.pdf
+*.csv
 
 # Compressed files
 *.zip
