@@ -1,4 +1,4 @@
-# Process Automation Assessment Tool
+# Process Automation Feasibility and Prioritization Tool
 
 A comprehensive web application to evaluate and prioritize business processes for automation based on key factors such as complexity, frequency, manual error rate, and cost savings.
 
