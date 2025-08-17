@@ -81,7 +81,7 @@ const ProcessList = () => {
             <div>
               <h1>Process Assessments</h1>
               <p className="text-muted mb-0">
-                Manage and review all process automation assessments
+                Manage and review all Process Automation Feasibility and Prioritizations
               </p>
             </div>
             <Link to="/assessment/new">

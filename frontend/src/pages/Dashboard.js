@@ -103,7 +103,7 @@ const Dashboard = () => {
             <div>
               <h1 className="mb-2">Dashboard</h1>
               <p className="text-muted mb-0">
-                Process automation assessment overview
+                Process Automation Feasibility and Prioritization overview
               </p>
             </div>
             <Link to="/assessment/new">

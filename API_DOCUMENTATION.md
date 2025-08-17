@@ -280,7 +280,7 @@ GET /tasks/reports/
     {
       "id": 1,
       "title": "Q1 Automation Assessment Report",
-      "description": "First quarter process automation assessment",
+      "description": "First quarter Process Automation Feasibility and Prioritization",
       "generated_by_name": "John Doe",
       "highly_automatable_count": 3,
       "possibly_automatable_count": 2,
@@ -300,7 +300,7 @@ POST /tasks/reports/
 ```json
 {
   "title": "Q1 Automation Assessment Report",
-  "description": "First quarter process automation assessment",
+  "description": "First quarter Process Automation Feasibility and Prioritization",
   "assessment_ids": [1, 2, 3, 4, 5, 6]
 }
 ```

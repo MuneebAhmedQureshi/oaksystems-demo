@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class ProcessAssessment(models.Model):
-    """Main model for process automation assessment"""
+    """Main model for Process Automation Feasibility and Prioritization"""
     
     AUTOMATION_SUITABILITY_CHOICES = [
         ('not_suitable', 'Not Suitable for Automation'),

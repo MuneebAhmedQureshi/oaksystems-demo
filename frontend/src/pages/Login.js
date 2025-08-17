@@ -50,7 +50,7 @@ const Login = () => {
           <Card className="shadow">
             <Card.Body className="p-5">
               <div className="text-center mb-4">
-                <h3>Process Automation Assessment</h3>
+                <h3>Process Automation Feasibility and Prioritization</h3>
                 <p className="text-muted">Sign in to your account</p>
               </div>
 

@@ -17,7 +17,7 @@ def api_root(request):
     return JsonResponse({
         'message': 'Process Automation Feasibility and Prioritization Tool - Backend API',
         'version': '1.0.0',
-        'description': 'Django REST API for process automation assessment and AI-powered analysis',
+        'description': 'Django REST API for Process Automation Feasibility and Prioritization and AI-powered analysis',
         'status': 'active',
         'backend_interfaces': {
             'django_admin': f'{base_url}/admin/',
@@ -31,7 +31,7 @@ def api_root(request):
         },
         'frontend_application': 'http://localhost:3000',
         'key_features': [
-            'Process automation assessment scoring',
+            'Process Automation Feasibility and Prioritization scoring',
             'AI-powered similarity analysis',
             'Automation success prediction',
             'Optimization suggestions',

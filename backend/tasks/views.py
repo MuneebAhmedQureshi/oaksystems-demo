@@ -203,7 +203,7 @@ def download_report_pdf(request, report_id):
         )
         
         # Title
-        elements.append(Paragraph(f"Process Automation Assessment Report", title_style))
+        elements.append(Paragraph(f"Process Automation Feasibility and Prioritization Report", title_style))
         elements.append(Paragraph(f"Report: {report.title}", styles['Heading2']))
         elements.append(Paragraph(f"Generated: {timezone.now().strftime('%Y-%m-%d %H:%M')}", styles['Normal']))
         elements.append(Spacer(1, 20))

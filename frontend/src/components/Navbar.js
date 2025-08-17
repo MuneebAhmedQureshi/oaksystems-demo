@@ -14,7 +14,7 @@ const Navbar = () => {
     <BootstrapNavbar bg="white" expand="lg" className="border-bottom">
       <Container fluid>
         <BootstrapNavbar.Brand href="/dashboard">
-          Process Automation Assessment
+          Process Automation Feasibility and Prioritization
         </BootstrapNavbar.Brand>
         
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />

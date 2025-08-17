@@ -120,7 +120,7 @@ const AIFeatures = () => {
         <Col>
           <h1>AI Features</h1>
           <p className="text-muted">
-            Advanced AI-powered analysis for process automation assessment
+            Advanced AI-powered analysis for Process Automation Feasibility and Prioritization
           </p>
         </Col>
       </Row>

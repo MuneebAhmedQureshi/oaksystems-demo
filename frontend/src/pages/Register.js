@@ -61,7 +61,7 @@ const Register = () => {
             <Card.Body className="p-5">
               <div className="text-center mb-4">
                 <h3>Create Account</h3>
-                <p className="text-muted">Join Process Automation Assessment</p>
+                <p className="text-muted">Join Process Automation Feasibility and Prioritization</p>
               </div>
 
               {errors.general && <Alert variant="danger">{errors.general}</Alert>}
