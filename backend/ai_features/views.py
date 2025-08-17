@@ -7,9 +7,25 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
+import json
 
 from tasks.models import ProcessAssessment
 from .models import ProcessAnalysis
+
+
+def convert_numpy_types(obj):
+    """Convert numpy types to Python native types for JSON serialization"""
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    return obj
 
 
 @api_view(['POST'])
@@ -50,9 +66,10 @@ def analyze_process_similarity(request):
         # Organize results
         cluster_groups = {}
         for i, (process_name, cluster) in enumerate(zip(process_names, clusters)):
-            if cluster not in cluster_groups:
-                cluster_groups[cluster] = []
-            cluster_groups[cluster].append({
+            cluster_id = int(cluster)  # Convert numpy int to Python int
+            if cluster_id not in cluster_groups:
+                cluster_groups[cluster_id] = []
+            cluster_groups[cluster_id].append({
                 'process_name': process_name,
                 'scores': data[i],
                 'total_score': sum(data[i])
@@ -62,9 +79,9 @@ def analyze_process_similarity(request):
         insights = []
         for cluster_id, processes in cluster_groups.items():
             if len(processes) > 1:
-                avg_score = np.mean([p['total_score'] for p in processes])
+                avg_score = float(np.mean([p['total_score'] for p in processes]))
                 insights.append({
-                    'cluster_id': cluster_id,
+                    'cluster_id': int(cluster_id),
                     'processes': [p['process_name'] for p in processes],
                     'average_score': round(avg_score, 1),
                     'insight': f"These {len(processes)} processes have similar automation characteristics"
@@ -80,11 +97,14 @@ def analyze_process_similarity(request):
             analyzed_by=request.user
         )
         
-        return Response({
+        # Convert numpy types before returning
+        response_data = convert_numpy_types({
             'analysis_id': analysis.id,
             'insights': insights,
             'cluster_groups': cluster_groups
         })
+        
+        return Response(response_data)
     
     except Exception as e:
         return Response({
@@ -116,7 +136,7 @@ def predict_automation_success(request):
     weighted_score = sum(scores.get(factor, 0) * weight for factor, weight in weights.items())
     
     # Convert to probability (0-100%)
-    success_probability = min(100, (weighted_score / 5) * 100)
+    success_probability = float(min(100, (weighted_score / 5) * 100))
     
     # Generate recommendations based on probability
     if success_probability >= 80:
@@ -142,13 +162,15 @@ def predict_automation_success(request):
         analyzed_by=request.user
     )
     
-    return Response({
+    response_data = convert_numpy_types({
         'analysis_id': analysis.id,
         'success_probability': round(success_probability, 1),
         'recommendation': recommendation,
         'risk_factors': risk_factors,
         'confidence': 85
     })
+    
+    return Response(response_data)
 
 
 @api_view(['POST'])
@@ -215,12 +237,14 @@ def generate_optimization_suggestions(request):
         analyzed_by=request.user
     )
     
-    return Response({
+    response_data = convert_numpy_types({
         'analysis_id': analysis.id,
         'high_priority_suggestions': high_priority,
         'medium_priority_suggestions': medium_priority,
         'total_suggestions': len(suggestions)
     })
+    
+    return Response(response_data)
 
 
 @api_view(['GET'])
