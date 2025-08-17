@@ -15,7 +15,7 @@ def api_root(request):
     base_url = f"{request.scheme}://{request.get_host()}"
     
     return JsonResponse({
-        'message': 'Process Automation Assessment Tool - Backend API',
+        'message': 'Process Automation Feasibility and Prioritization Tool - Backend API',
         'version': '1.0.0',
         'description': 'Django REST API for process automation assessment and AI-powered analysis',
         'status': 'active',

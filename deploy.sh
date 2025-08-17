@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Process Automation Assessment Tool - Deployment Script
+# Process Automation Feasibility and Prioritization Tool - Deployment Script
 
-echo "🤖 Process Automation Assessment Tool Deployment"
+echo "🤖 Process Automation Feasibility and Prioritization Tool Deployment"
 echo "================================================"
 
 # Check if Docker is installed

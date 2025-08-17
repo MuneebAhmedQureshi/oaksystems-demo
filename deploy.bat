@@ -1,7 +1,7 @@
 @echo off
-REM Process Automation Assessment Tool - Deployment Script for Windows
+REM Process Automation Feasibility and Prioritization Tool - Deployment Script for Windows
 
-echo 🤖 Process Automation Assessment Tool Deployment
+echo 🤖 Process Automation Feasibility and Prioritization Tool Deployment
 echo ================================================
 
 REM Check if Docker is installed

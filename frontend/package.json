@@ -1,7 +1,7 @@
 {
   "name": "process-automation-frontend",
   "version": "1.0.0",
-  "description": "Frontend for Process Automation Assessment Tool",
+  "description": "Frontend for Process Automation Feasibility and Prioritization Tool",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
